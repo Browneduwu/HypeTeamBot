@@ -3,6 +3,7 @@ const discord = require("discord.js");
 const config = require("./config.json");
 const bot = new discord.Client();
 const fs = require("fs");
+const Discord = require("discord.js");
 
 // Rich Precense That Changes Every 30 Seconds
 bot.on('ready', () => {
@@ -36,7 +37,12 @@ bot.on('ready', () => {
 
 
 
-
+// Join Role
+bot.on('guildMemberAdd', member => {
+    console.log('User ' + member.username + ' has joined the server!');
+    var memberrole = member.guild.roles.find('name', 'Member');
+    member.addRole(memberrole)
+});
 
 // Load Commands
 bot.commands = new discord.Collection();
