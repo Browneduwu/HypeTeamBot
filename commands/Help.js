@@ -4,7 +4,7 @@ const bot = new discord.Client();
 const helpembed = new discord.MessageEmbed()
     .setColor('#ff0000')
     .setTitle('Server Commands')
-    .addFields({ name: `${config.prefix}help`, value: 'Shows you this menu', inline: true }, { name: `${config.prefix}youtube / ${config.prefix}yt`, value: 'Shows you youtubers on this server', inline: true }, { name: `${config.prefix}ping`, value: 'Shows you latency to the server', inline: true }, { name: `${config.prefix}meme`, value: 'Random Meme From Reddit', inline: true });
+    .addFields({ name: `${config.prefix}Help`, value: 'Shows you this menu', inline: true }, { name: `${config.prefix}YouTube / ${config.prefix}YT`, value: 'Shows you youtubers on this server', inline: true }, { name: `${config.prefix}Ping / ${config.prefix}Latency`, value: 'Shows you latency to the server', inline: true }, { name: `${config.prefix}Meme`, value: 'Random Meme From Reddit', inline: true }, { name: `${config.prefix}MyPFP / ${config.prefix}MyProfilePic / ${config.prefix}MyProfilePicture`, value: 'Shows your profile picture, good if you lost your profile picture', inline: true });
 
 
 module.exports.run = async (bot, message, args) => {
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     };
     if (!message.guild) return;
     message.channel.startTyping();
-    message.channel.send(helpembed);
+    message.channel.send(helpembed).catch();
     message.channel.stopTyping();
 };
 
