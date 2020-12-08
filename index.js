@@ -1,7 +1,7 @@
 // Imports
 const discord = require("discord.js");
 const config = require("./config.json");
-const bot = new discord.Client();
+const bot = new discord.Client({ partials: ["MESSAGE", "CHANNEL", 'REACTION']});
 const fs = require("fs");
 const Discord = require("discord.js");
 
@@ -37,12 +37,6 @@ bot.on('ready', () => {
 
 
 
-// Join Role
-bot.on('guildMemberAdd', member => {
-    console.log('User ' + member.username + ' has joined the server!');
-    var memberrole = member.guild.roles.find('name', 'Member');
-    member.addRole(memberrole)
-});
 
 // Load Commands
 bot.commands = new discord.Collection();
